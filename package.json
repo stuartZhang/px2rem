@@ -16,8 +16,10 @@
     "fs-extra": "~0.16.3"
   },
   "devDependencies": {
-    "istanbul": "^0.3.6",
     "coveralls": "^2.10.0",
+    "eslint": "^7.13.0",
+    "eslint-config-minxing": "^2.0.8",
+    "istanbul": "^0.3.6",
     "mocha": "^2.1.0"
   },
   "bin": {
