@@ -1,4 +1,4 @@
-# px2rem
+# px2rem-stzhang
 
 According to one stylesheet, generate rem version and @1x, @2x and @3x stylesheet.
 
@@ -20,7 +20,7 @@ This set of tools contains:
 
 * a CLI tool
 * [gulp plugin](https://www.npmjs.com/package/gulp-px3rem)
-* [webpack loader](https://www.npmjs.com/package/px2rem-loader)
+* [webpack loader](https://www.npmjs.com/package/px2rem-loader-stzhang)
 * [postcss plugin](https://www.npmjs.com/package/postcss-px2rem)
 
 ## Usage
@@ -35,7 +35,7 @@ The raw stylesheet only contains @2x style, and if you
 ### CLI tool
 
 ```
-$ npm install -g px2rem
+$ npm install -g px2rem-stzhang
 ```
 ```
 $ px2rem -o build src/*.css
@@ -59,7 +59,7 @@ $ px2rem -o build src/*.css
 ### API
 
 ```
-var Px2rem = require('px2rem');
+var Px2rem = require('px2rem-stzhang');
 var px2remIns = new Px2rem([config]);
 var originCssText = '...';
 var dpr = 2;
