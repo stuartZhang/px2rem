@@ -1,7 +1,7 @@
 {
     "name": "px2rem-stzhang",
     "description": "According to one stylesheet, generate rem version and @1x, @2x and @3x stylesheet",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "homepage": "https://github.com/stuartZhang/px2rem",
     "author": "stuart_zhang <stuartpage@qq.com>",
     "repository": {
