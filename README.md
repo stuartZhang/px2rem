@@ -54,11 +54,12 @@ $ px2rem -o build src/*.css
     -b, --baseDpr [value]           set base device pixel ratio (default: 2)
     -p, --remPrecision [value]      set rem value precision (default: 6)
     -o, --output [path]             the output file dirname
+    -m, --minPixelValue [value]     set the minimum pixel value to replace. (default: 0)
 ```
 
 ### API
 
-```
+```javascript
 var Px2rem = require('px2rem-stzhang');
 var px2remIns = new Px2rem([config]);
 var originCssText = '...';
@@ -69,11 +70,11 @@ var newCssText = px2remIns.generateThree(originCssText, dpr); // generate @1x, @
 
 ### Example
 
-#### Pre processing:
+#### Pre processing
 
 One raw stylesheet: `test.css`
 
-```
+```css
 .selector {
   width: 150px;
   height: 64px; /*px*/
@@ -82,11 +83,11 @@ One raw stylesheet: `test.css`
 }
 ```
 
-#### After processing:
+#### After processing
 
 Rem version: `test.debug.css`
 
-```
+```css
 .selector {
   width: 2rem;
   border: 1px solid #ddd;
@@ -107,7 +108,7 @@ Rem version: `test.debug.css`
 
 @1x version: `test1x.debug.css`
 
-```
+```css
 .selector {
   width: 75px;
   height: 32px;
@@ -118,7 +119,7 @@ Rem version: `test.debug.css`
 
 @2x version: `test2x.debug.css`
 
-```
+```css
 .selector {
   width: 150px;
   height: 64px;
@@ -129,7 +130,7 @@ Rem version: `test.debug.css`
 
 @3x version: `test3x.debug.css`
 
-```
+```css
 .selector {
   width: 225px;
   height: 96px;
@@ -143,6 +144,36 @@ Rem version: `test.debug.css`
 comment hook + css parser
 
 ## Change Log
+
+### 1.0.0
+
+* 使用`schema-utils`对被输入的配置对象做数据结构验证。
+* 添加新的配置项`minPixelValue`数字类型（缺省值为`0`）。
+  * 当样式`px`值小于等于`minPixelValue`时，就绕过`px2rem`处理。
+* 添加新配置项`blackList`对象类型
+  * 数据结构：
+    * `[{selector: string | RegExp; property: string | RegExp; type: 'AND' | 'OR'}, ...]`
+    * `selector`与`property`若是字符串类型，遵循被包含匹配规则。也就是说，若被指定的`css selector`片段被包含，就认定为匹配。
+    * `type`代表`selector`与`property`之间的逻辑运算关系：与 / 或。
+  * 功能：满足【黑清单】过滤条的样式属性皆绕过`px2rem`处理。
+
+全新配置对象如下：
+
+```typescript
+new Px2rem({
+    baseDpr: 2,           // base device pixel ratio (default: 2)
+    remUnit: 75,          // rem unit value (default: 75)
+    remPrecision: 6,      // rem value precision (default: 6)
+    forcePxComment: 'px', // force px comment (default: `px`)
+    keepComment: 'no',    // no transform value comment (default: `no`)
+    minPixelValue: 0,     // Set the minimum pixel value to replace.
+    blackList: [/* {      The condition to ignore and leave as px.
+        selector: string | RegExp,
+        property: string | RegExp,
+        type: 'AND' | 'OR'
+    } */]
+})
+```
 
 ### 0.5.0
 

@@ -34,6 +34,7 @@ program.version(pkg.version)
     .option('-r, --remVersion [value]', 'whether to generate rem version stylesheet (default: true)', true)
     .option('-b, --baseDpr [value]', 'set base device pixel ratio (default: 2)', 2)
     .option('-p, --remPrecision [value]', 'set rem value precision (default: 6)', 6)
+    .option('-m, --minPixelValue [value]', 'set the minimum pixel value to replace. (default: 0)', 0)
     .option('-o, --output [path]', 'the output file dirname')
     .parse(process.argv);
 if (program.args.length) {
@@ -42,7 +43,8 @@ if (program.args.length) {
         threeVersion: deserializeValue(program.threeVersion),
         remVersion: deserializeValue(program.remVersion),
         baseDpr: deserializeValue(program.baseDpr),
-        remPrecision: deserializeValue(program.remPrecision)
+        remPrecision: deserializeValue(program.remPrecision),
+        minPixelValue: deserializeValue(program.minPixelValue)
     };
     const px2remIns = new Px2rem(config);
     program.args.forEach(filePath => {
