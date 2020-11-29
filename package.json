@@ -1,40 +1,40 @@
 {
-  "name": "px2rem-stzhang",
-  "description": "According to one stylesheet, generate rem version and @1x, @2x and @3x stylesheet",
-  "version": "1.0.0",
-  "homepage": "https://github.com/stuartZhang/px2rem",
-  "author": "stuart_zhang <stuartpage@qq.com>",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:stuartZhang/px2rem.git"
-  },
-  "dependencies": {
-    "chalk": "~0.5.1",
-    "commander": "~2.6.0",
-    "css": "~2.2.0",
-    "extend": "~3.0.0",
-    "fs-extra": "~0.16.3",
-    "schema-utils": "^2.7.0"
-  },
-  "devDependencies": {
-    "coveralls": "^2.10.0",
-    "eslint": "^7.13.0",
-    "eslint-config-minxing": "^2.0.8",
-    "istanbul": "^0.3.6",
-    "mocha": "^2.1.0"
-  },
-  "bin": {
-    "px2rem": "./bin/px2rem.js"
-  },
-  "scripts": {
-    "test": "mocha",
-    "cover": "node node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter dot"
-  },
-  "main": "index.js",
-  "keywords": [
-    "3x",
-    "rem",
-    "px2rem"
-  ],
-  "license": "MIT"
+    "name": "px2rem-stzhang",
+    "description": "According to one stylesheet, generate rem version and @1x, @2x and @3x stylesheet",
+    "version": "1.0.0",
+    "homepage": "https://github.com/stuartZhang/px2rem",
+    "author": "stuart_zhang <stuartpage@qq.com>",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:stuartZhang/px2rem.git"
+    },
+    "dependencies": {
+        "chalk": "~0.5.1",
+        "commander": "~2.6.0",
+        "css": "~2.2.0",
+        "extend": "~3.0.0",
+        "fs-extra": "~0.16.3",
+        "schema-utils": "^2.7.0"
+    },
+    "devDependencies": {
+        "coveralls": "^2.10.0",
+        "eslint": "^7.13.0",
+        "eslint-config-minxing": "^2.0.8",
+        "istanbul": "^0.3.6",
+        "mocha": "^2.1.0"
+    },
+    "bin": {
+        "px2rem": "./bin/px2rem.js"
+    },
+    "scripts": {
+        "test": "mocha",
+        "cover": "node node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter dot"
+    },
+    "main": "index.js",
+    "keywords": [
+        "3x",
+        "rem",
+        "px2rem"
+    ],
+    "license": "MIT"
 }
